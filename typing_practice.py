@@ -1,3 +1,4 @@
+# Learning
 """
 from typing import Literal, Final, Dict, Any, TypedDict
 
@@ -25,7 +26,7 @@ class Person(TypedDict):
 person: Person = {'name': 'Kim', 'l_name': 'Jhorgen', 'age': 12}
 person['l_name'] = 19
 """
-
+# Repetition 1
 """
 from typing import overload, Literal, Union, TypedDict, Final
 
@@ -62,4 +63,60 @@ class Answer(TypedDict):
 
 ans: Answer = {'ans1': 1, 'ans2': '2'}
 ans['ans2'] = 10
+"""
+
+# Repetition 2
+"""
+from typing import Literal, Final, final, TypedDict, Protocol, List
+
+
+def move(i: Literal[int]): ...
+
+
+move('5')
+
+PI: final = 3.14
+PI = 3.1
+
+
+@final
+class Cat(Final):
+    x: Final[int] = 10
+
+    def say(self):
+        print('MM')
+
+
+class Dog(Cat):
+    pass
+
+
+class Player(TypedDict):
+    name: str
+    rating: int
+
+
+player1: Player = {'name': 'Caruano', 'rating': 2421}
+
+player1['name'] = 10
+
+
+class Flyable(Protocol):
+    def fly(self): ...
+
+
+class Bird:
+    def fly(self): ...
+
+
+class Fish:
+    def swim(self): ...
+
+
+def output(arr: List[Flyable]) -> None:
+    for item in arr:
+        print(item.fly())
+
+
+output(Bird, Fish)
 """
