@@ -30,7 +30,7 @@ def start_server():
             listen_accepted_usr.start()
 
             print(f'Подключился {address[1]}')
-        except:
+        except Exception:
             server.close()
             break
 

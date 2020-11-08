@@ -18,7 +18,7 @@ def start_client():
     while True:
         try:
             client.send(input(': ').encode('utf-8'))
-        except:
+        except Exception:
             client.close()
             break
 
