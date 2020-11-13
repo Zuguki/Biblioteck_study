@@ -1,10 +1,10 @@
 import time
-import concurrent.futures
 from Thread.threading_practice1 import get_numbers_which_share_to
+from concurrent.futures import ThreadPoolExecutor
 
 
 if __name__ == '__main__':
-    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+    with ThreadPoolExecutor(max_workers=2) as executor:
         futures = [executor.submit(get_numbers_which_share_to, 3, 250),
                    executor.submit(get_numbers_which_share_to, 5, 250)]
 
